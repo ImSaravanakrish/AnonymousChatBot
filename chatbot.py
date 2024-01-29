@@ -17,7 +17,8 @@ import time
 import pytz
 from datetime import datetime
 from config import GROUP, OWNER, CHANNEL, BOT_NAME, TOKEN
-
+from pyrogram import Client, filters
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message, User, ChatJoinRequest
 
 bot = telebot.TeleBot(f'{TOKEN}')
 
@@ -29,9 +30,22 @@ class User:
         self.age = None
         self.sex = None
         self.change = None
-
+        
+button=[[
+      InlineKeyboardButton("Support Group 👥", url="https://t.me/TamilSupport"),
+      InlineKeyboardButton("Updates Channel 📢", url="https://t.me/TamilBots")
+      ],[
+      InlineKeyboardButton("Bot List 🤖", url=f"https://t.me/TamilBots/84")
+      ]]
 
 user_dict = {}  
+buton=[[
+      InlineKeyboardButton("Support Group 👥", url="https://t.me/TamilSupport"),
+      InlineKeyboardButton("Updates Channel 📢", url="https://t.me/TamilBots")
+      ],[
+      InlineKeyboardButton("Tamil Chat Group", url=f"https://t.me/TamilChatGroup")
+      ]]
+
 
 @bot.message_handler(commands=['start'])
 def welcome(message):
@@ -39,10 +53,10 @@ def welcome(message):
         mark = types.ReplyKeyboardMarkup(one_time_keyboard=True, resize_keyboard=True)
         mark.add('🔍 Find a Partner')
         mark.add('📰 Info Profile', '🗑 Delete Profile')
-        bot.send_message(message.from_user.id, f"*Welcome to Join {BOT_NAME}🙊*\n\n_Hope you get a friend or a mate_\n\n*NOTE:*\nJOIN\n[👥 ɢʀᴏᴜᴘ](t.me/{GROUP}) | [ᴄʜᴀɴɴᴇʟ 📣](t.me/{CHANNEL}) | [📱ᴏᴡɴᴇʀ](t.me/{OWNER})",parse_mode="markdown",disable_web_page_preview=True, reply_markup=mark)
+        bot.send_message(message.from_user.id, f"*Welcome to Join {BOT_NAME}🙊*\n\n_Hope you get a friend or a mate_\n\n*NOTE:*\nJOIN\n[👥 ɢʀᴏᴜᴘ](t.me/{GROUP}) | [ᴄʜᴀɴɴᴇʟ 📣](t.me/{CHANNEL}) | [📱ᴏᴡɴᴇʀ](t.me/{OWNER})",reply_markup=InlineKeyboardMarkup(button), disable_web_page_preview=True))
         bot.register_next_step_handler(message, search_prof)
     else:
-        bot.send_message(message.from_user.id, "_👋Hello New Users, To Continue Filling The Following Bio data!_",parse_mode="markdown")
+        bot.send_message(message.from_user.id, "_👋Hello New Users, To Continue Filling The Following Bio data!_",reply_markup=InlineKeyboardMarkup(buton), disable_web_page_preview=True)
         bot.send_message(message.from_user.id, "➡️ *Your name :*", parse_mode="markdown")
         bot.register_next_step_handler(message, reg_name)
 
