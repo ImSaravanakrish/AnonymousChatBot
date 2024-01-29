@@ -35,7 +35,7 @@ botton=[[
       InlineKeyboardButton("Support Group 👥", url="https://t.me/TamilSupport"),
       InlineKeyboardButton("Updates Channel 📢", url="https://t.me/TamilBots")
       ],[
-      InlineKeyboardButton("Tamil Chat Group", url=f"https://TamilChatGroup")
+      InlineKeyboardButton("Tamil Chat Group🇮🇳", url=f"https://TamilChatGroup")
       ]]
 
 user_dict = {}  
@@ -43,7 +43,7 @@ buton=[[
       InlineKeyboardButton("Support Group 👥", url="https://t.me/TamilSupport"),
       InlineKeyboardButton("Updates Channel 📢", url="https://t.me/TamilBots")
       ],[
-      InlineKeyboardButton("Tamil Chat Group", url=f"https://t.me/TamilChatGroup")
+      InlineKeyboardButton("Tamil Chat Group🇮🇳", url=f"https://t.me/TamilChatGroup")
       ]]
 
 
@@ -56,7 +56,7 @@ def welcome(message):
         bot.send_message(message.from_user.id, f"*Welcome to {BOT_NAME}🙊*\n\n_Hope you get a friend or a mate",reply_markup=InlineKeyboardMarkup(botton), disable_web_page_preview=True)
         bot.register_next_step_handler(message, search_prof)
     else:
-        bot.send_message(message.from_user.id, "_👋Hello New Users, To Continue Filling The Following Bio data!_",reply_markup=InlineKeyboardMarkup(buton), disable_web_page_preview=True)
+        bot.send_message(message.from_user.id, "_👋Hello New Users, To Continue the chat 🫣 Filling The Following Bio data!🕵️_",reply_markup=InlineKeyboardMarkup(buton), disable_web_page_preview=True)
         bot.send_message(message.from_user.id, "➡️ *Your name :*", parse_mode="markdown")
         bot.register_next_step_handler(message, reg_name)
 
