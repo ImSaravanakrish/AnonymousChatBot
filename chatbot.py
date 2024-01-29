@@ -53,10 +53,10 @@ def welcome(message):
         mark = types.ReplyKeyboardMarkup(one_time_keyboard=True, resize_keyboard=True)
         mark.add('🔍 Find a Partner')
         mark.add('📰 Info Profile', '🗑 Delete Profile')
-        bot.send_message(message.from_user.id, f"*Welcome to Join {BOT_NAME}🙊*\n\n_Hope you get a friend or a mate_\n\n*NOTE:*\nJOIN\n[👥 ɢʀᴏᴜᴘ](t.me/{GROUP}) | [ᴄʜᴀɴɴᴇʟ 📣](t.me/{CHANNEL}) | [📱ᴏᴡɴᴇʀ](t.me/{OWNER})",parse_mode="markdown",disable_web_page_preview=True, reply_markup=mark)
+        bot.send_message(message.from_user.id, f"*Welcome to Join {BOT_NAME}🙊*\n\n_Hope you get a friend or a mate_\n\n*NOTE:*\nJOIN\n[👥 Tamil Chat ɢʀᴏᴜᴘ](t.me/{GROUP}) | [Bot ᴄʜᴀɴɴᴇʟ 📣](t.me/{CHANNEL}) | [🧑‍💻 developer](t.me/{OWNER})",parse_mode="markdown",disable_web_page_preview=True, reply_markup=mark)
         bot.register_next_step_handler(message, search_prof)
     else:
-        bot.send_message(message.from_user.id, "_👋Hello New Users, To Continue Filling The Following Bio data!_",parse_mode="markdown")
+        bot.send_message(message.from_user.id, "_👋Hello New Users,\n\n To Continue the chat 🫣 Filling The Following Bio data!_",parse_mode="markdown")
         bot.send_message(message.from_user.id, "➡️ *Your name :*", parse_mode="markdown")
         bot.register_next_step_handler(message, reg_name)
 
