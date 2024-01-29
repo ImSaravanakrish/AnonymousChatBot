@@ -1,6 +1,6 @@
 import os 
 
-TOKEN = os.environ.get("TOKEN", "")
+TOKEN = os.environ.get("TOKEN", "6318256885:AAGgylgIY6zZXlegJfFdJO5QJOogSFhQAxs")
 OWNER = os.environ.get("OWNER", "useless07")
 GROUP = os.environ.get("GROUP", "TamilChatGroup")
 CHANNEL = os.environ.get("CHANNEL", "TamilBots")
